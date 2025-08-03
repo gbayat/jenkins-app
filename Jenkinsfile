@@ -2,29 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('without docker') {
+        stage('Hello') {
             steps {
-                sh '''
-                    echo "Without docker"
-                    ls -la
-                    touch container-no.txt
-                '''
-            }
-        }
-
-        stage('with docker') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
-            steps {
-                sh '''
-                    echo "with docker"
-                    ls -la
-                    touch container-yes.txt
-                '''
+                echo 'Hello World'
             }
         }
     }
